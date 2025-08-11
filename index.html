@@ -1097,30 +1097,32 @@
 
     <!-- Rest of your HTML content -->
 
-    <script>
-        // Check if user is already authenticated
-        document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('authenticated') === 'true') {
-                document.getElementById('password-prompt').style.display = 'none';
-            }
-        });
+<!-- Normal JS (Authentication) -->
+<script>
+  // Check if user is already authenticated
+  document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('authenticated') === 'true') {
+      document.getElementById('password-prompt').style.display = 'none';
+    }
+  });
 
-        // Password check
-        function checkPassword() {
-            const password = document.getElementById('password-input').value;
-            if (password === "TJKT2025") {
-                localStorage.setItem('authenticated', 'true');
-                document.getElementById('password-prompt').style.display = 'none';
-            } else {
-                alert("Kata sandi salah!");
-            }
-        }
-        <script type="module">
+  // Password check
+  function checkPassword() {
+    const password = document.getElementById('password-input').value;
+    if (password === "TJKT2025") {
+      localStorage.setItem('authenticated', 'true');
+      document.getElementById('password-prompt').style.display = 'none';
+    } else {
+      alert("Kata sandi salah!");
+    }
+  }
+</script>
+
+<!-- Firebase JS using module -->
+<script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
+  
   // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyAjjCvnE-nNIpQ-Dr6rxtu-QDmP9zWuKMM",
@@ -1133,10 +1135,12 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-</script>
 
-        // Rest of your JavaScript code
-    </script>
+  if (password === "TJKT2025") { 
+  localStorage.setItem('authenticated', 'true'); 
+  document.getElementById('password-prompt').style.display = 'none';
+}
+
+</script>
 </body>
 </html>
-
